@@ -1,0 +1,58 @@
+void gWindow::setSurfaceBg(Uint8 R, Uint8 G, Uint8 B)
+{
+    SDL_FillRect(this->surface,nullptr,SDL_MapRGB(this->surface->format,R, G, B));
+    SDL_UpdateWindowSurface(this->window);
+}
+
+void gWindow::loadMedia(const char* file)
+{
+    SDL_Surface* gMedia = IMG_Load(file);
+    SDL_Surface* optimizedSurface;
+    if(gMedia == nullptr)
+    {
+        printf( "Unable to load image %s! SDL Error: %s\n", file, SDL_GetError() );  
+    }
+    else
+    {
+        optimizedSurface = SDL_ConvertSurface(gMedia,this->surface->format,0);
+        SDL_FreeSurface(gMedia);
+        if(optimizedSurface == nullptr)
+        {
+            printf( "Unable to optimize image %s! SDL Error: %s\n",file, SDL_GetError() );
+        }
+        else
+        {
+            SDL_BlitSurface(optimizedSurface,nullptr,this->surface,nullptr);
+            SDL_UpdateWindowSurface(this->window);
+        }   
+    }
+}
+
+void gWindow::loadMedia(const char* file,int x, int y, int h, int w)
+{
+    SDL_Surface* gMedia = SDL_LoadBMP(file);
+    SDL_Surface* optimizedSurface;
+    if(gMedia == nullptr)
+    {
+        printf( "Unable to load image %s! SDL Error: %s\n", file, SDL_GetError() );  
+    }
+    else
+    {
+        optimizedSurface = SDL_ConvertSurface(gMedia,this->surface->format,0);
+        SDL_FreeSurface(gMedia);
+        if(optimizedSurface == nullptr)
+        {
+            printf( "Unable to optimize image %s! SDL Error: %s\n",file, SDL_GetError() );
+        }
+        else
+        {
+            SDL_Rect rectangle;
+            rectangle.h = h;
+            rectangle.w = w;
+            rectangle.x = x;
+            rectangle.y = y;
+            SDL_BlitScaled(optimizedSurface,nullptr,this->surface,&rectangle);
+            SDL_UpdateWindowSurface(this->window);
+        }   
+    }
+}

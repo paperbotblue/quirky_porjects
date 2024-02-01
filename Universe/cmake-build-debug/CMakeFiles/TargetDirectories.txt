@@ -1,0 +1,3 @@
+/home/guildarts/CLionProjects/Universe/cmake-build-debug/CMakeFiles/Universe.dir
+/home/guildarts/CLionProjects/Universe/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/guildarts/CLionProjects/Universe/cmake-build-debug/CMakeFiles/rebuild_cache.dir

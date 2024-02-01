@@ -1,0 +1,3 @@
+/home/guildarts/CLionProjects/Paint_v0.2/cmake-build-debug/CMakeFiles/Paint_v0_2.dir
+/home/guildarts/CLionProjects/Paint_v0.2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/guildarts/CLionProjects/Paint_v0.2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
